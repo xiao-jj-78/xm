@@ -1,0 +1,179 @@
+.art {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.book {
+  width: 46px;
+  height: 58px;
+  background: #6aa8ff;
+  border-radius: 3px 8px 8px 3px;
+  box-shadow: 8px 6px 0 #ffd44a, 16px 12px 0 #ff8a6a;
+  transform: rotate(-8deg);
+}
+
+.ebike {
+  width: 70px;
+  height: 44px;
+  position: relative;
+}
+.ebike::before,
+.ebike::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #3a4a3a;
+  border-radius: 50%;
+}
+.ebike::before {
+  left: 4px;
+}
+.ebike::after {
+  right: 4px;
+}
+.deck {
+  position: absolute;
+  left: 14px;
+  right: 16px;
+  bottom: 12px;
+  height: 6px;
+  background: #4d8dff;
+  border-radius: 4px;
+}
+.stem {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  width: 4px;
+  height: 18px;
+  background: #4d8dff;
+  transform: rotate(18deg);
+}
+
+.bike {
+  width: 72px;
+  height: 42px;
+}
+.wheel {
+  position: absolute;
+  bottom: 4px;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #3a4a3a;
+  border-radius: 50%;
+}
+.frame {
+  position: absolute;
+  left: 20px;
+  bottom: 14px;
+  width: 28px;
+  height: 16px;
+  border: 3px solid #67c23a;
+  border-radius: 4px;
+  transform: skewX(-18deg);
+}
+
+.laptop {
+  width: 64px;
+  height: 42px;
+  background: #8aa4c8;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 18px 0 -12px #c5d2e4;
+}
+.laptop::after {
+  content: "";
+  position: absolute;
+  inset: 6px 6px 10px;
+  background: #d9ecff;
+  border-radius: 2px;
+}
+
+.bag {
+  width: 40px;
+  height: 48px;
+  background: #5b8cff;
+  border-radius: 8px 8px 12px 12px;
+  position: relative;
+}
+.bag::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: -8px;
+  height: 14px;
+  border: 3px solid #3a5ad0;
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+}
+
+.pods {
+  width: 48px;
+  height: 28px;
+  background: #333;
+  border-radius: 16px;
+  position: relative;
+}
+.pods::before,
+.pods::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 14px;
+  height: 22px;
+  background: #eee;
+  border-radius: 10px;
+}
+.pods::before {
+  left: 6px;
+}
+.pods::after {
+  right: 6px;
+}
+
+.box {
+  width: 48px;
+  height: 36px;
+  background: #e2b36a;
+  border-radius: 4px;
+  box-shadow: inset 0 12px 0 #c8944a;
+}
+.meal {
+  width: 52px;
+  height: 36px;
+  background: #fff;
+  border: 3px solid #e8c48a;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 8px #f6d9a8;
+}
+
+.tea {
+  width: 34px;
+  height: 42px;
+  background: #ffc4d4;
+  border-radius: 6px 6px 10px 10px;
+  border: 3px solid #fff;
+  box-shadow: 8px 4px 0 #ffd44a;
+}
+.pen {
+  width: 8px;
+  height: 40px;
+  background: #333;
+  border-radius: 4px;
+  transform: rotate(-20deg);
+  box-shadow: 0 -12px 0 -2px #ffd44a;
+}
+.badminton {
+  width: 28px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50% 50% 8px 8px;
+  border: 3px solid #67c23a;
+}

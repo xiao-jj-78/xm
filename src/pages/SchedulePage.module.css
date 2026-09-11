@@ -1,0 +1,167 @@
+.page {
+  min-height: 100%;
+  background: linear-gradient(180deg, #eaf8d4 0%, #f6fbf0 100%);
+  padding-bottom: 20px;
+}
+
+.hero {
+  margin: 0 16px 12px;
+  background: linear-gradient(120deg, #d8f3b4, #eefbd6);
+  border-radius: 20px;
+  padding: 12px 12px 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero h2 {
+  font-size: 18px;
+  color: var(--green-text);
+  font-weight: 800;
+}
+
+.hero p {
+  font-size: 12px;
+  color: #6aa24a;
+  margin-top: 4px;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 22px 14px;
+  position: relative;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  top: 16px;
+  height: 2px;
+  background: #d6ecc0;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 0 auto 6px;
+  background: #fff;
+  border: 2px solid #d6ecc0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 12px;
+  color: #9aaa9a;
+}
+
+.step.on .dot {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+.step.on {
+  color: var(--green-text);
+  font-weight: 700;
+}
+
+.ways {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 16px 14px;
+}
+
+.way {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 12px;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.way b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.way p {
+  font-size: 11px;
+  color: var(--text-3);
+  min-height: 32px;
+}
+
+.go {
+  margin-top: 10px;
+  height: 32px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.go.ghost {
+  background: #e8f6ff;
+  color: #3a8ad0;
+}
+
+.card {
+  margin: 0 16px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 12px 8px 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card h3 {
+  font-size: 14px;
+  margin: 0 8px 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 42px repeat(7, 1fr);
+  gap: 3px;
+}
+
+.head,
+.cell,
+.time {
+  font-size: 10px;
+  text-align: center;
+  color: var(--text-3);
+  padding: 4px 0;
+}
+
+.block {
+  border-radius: 8px;
+  color: #2c3a2c;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 2px;
+  min-height: 44px;
+  line-height: 1.25;
+}
+
+.slot {
+  min-height: 44px;
+  background: #f7fbf0;
+  border-radius: 8px;
+}

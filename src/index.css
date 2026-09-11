@@ -1,0 +1,93 @@
+:root {
+  --green: #67c23a;
+  --green-hot: #5cb82e;
+  --green-deep: #3d9a32;
+  --green-text: #2f8f2a;
+  --green-ink: #24701f;
+  --green-soft: #e9f8d6;
+  --mint: #f3fbe8;
+  --mint-2: #e6f6cf;
+  --leaf: #c8ec8a;
+  --yellow: #ffd44a;
+  --yellow-2: #ffc107;
+  --sun: #ffe27a;
+  --orange: #ff8c22;
+  --price: #ff7a14;
+  --pink: #ff8aa0;
+  --blue: #5b9dff;
+  --purple: #9b8cff;
+  --text: #2c3a2c;
+  --text-2: #6b7c6b;
+  --text-3: #97a697;
+  --line: #e4eedb;
+  --card: #ffffff;
+  --shadow: 0 8px 22px rgba(86, 150, 60, 0.12);
+  --shadow-sm: 0 4px 12px rgba(86, 150, 60, 0.08);
+  --radius: 18px;
+  --radius-lg: 22px;
+  --phone-w: 375px;
+  --phone-h: 812px;
+  --tab-h: 64px;
+  --sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei",
+    system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: #ececec;
+  overflow: hidden;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.hide-scroll {
+  scrollbar-width: none;
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}

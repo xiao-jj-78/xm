@@ -1,0 +1,67 @@
+.bar {
+  height: 44px;
+  padding: 10px 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #1f2a1f;
+  font-weight: 650;
+  font-size: 15px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1f2a1f;
+  display: inline-block;
+}
+
+.sig {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5px;
+  height: 11px;
+}
+
+.sig i {
+  display: block;
+  width: 3px;
+  background: #1f2a1f;
+  border-radius: 1px;
+}
+
+.bat {
+  width: 22px;
+  height: 11px;
+  border: 1.5px solid #1f2a1f;
+  border-radius: 3px;
+  position: relative;
+}
+
+.bat::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 2.5px;
+  width: 2px;
+  height: 4px;
+  background: #1f2a1f;
+  border-radius: 1px;
+}
+
+.bat b {
+  display: block;
+  height: 100%;
+  width: 72%;
+  background: #1f2a1f;
+}
