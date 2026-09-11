@@ -21,7 +21,7 @@ export function InfoPage() {
   }, [filter])
 
   return (
-    <div className={styles.page} style={{ position: 'relative' }}>
+    <div className={styles.page}>
       <PageHeader title="校园信息站" />
       <div className={`${styles.chips} hide-scroll`}>
         {FILTERS.map((f) => (
@@ -35,12 +35,19 @@ export function InfoPage() {
         {list.map((p) => (
           <article key={p.id} className={styles.post}>
             <span className={styles.tag}>{p.tag}</span>
-            <div className={styles.postBody}>{p.body}</div>
-            {p.thumb ? (
-              <div className={styles.thumb} style={{ background: '#eef6dc' }}>
-                <ProductArt kind={p.thumb} />
+            <div className={styles.postMain}>
+              <div>
+                <div className={styles.postBody}>
+                  <b>{p.body.split('\n')[0]}</b>
+                  {p.body.split('\n').slice(1).join('\n')}
+                </div>
               </div>
-            ) : null}
+              {p.thumb ? (
+                <div className={styles.thumb}>
+                  <ProductArt kind={p.thumb} />
+                </div>
+              ) : null}
+            </div>
             <div className={styles.postFoot}>
               <span className={styles.user} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <Avatar name={p.user} />
@@ -58,9 +65,11 @@ export function InfoPage() {
           </article>
         ))}
       </div>
-      <button className={styles.fab} onClick={() => toast('发布一条校园信息')} aria-label="发布">
-        +
-      </button>
+      <div className={styles.fabWrap}>
+        <button className={styles.fab} onClick={() => toast('发布一条校园信息')} aria-label="发布">
+          +
+        </button>
+      </div>
     </div>
   )
 }

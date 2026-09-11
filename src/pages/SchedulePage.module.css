@@ -6,12 +6,12 @@
 
 .hero {
   margin: 0 16px 12px;
-  background: linear-gradient(120deg, #d8f3b4, #eefbd6);
+  background: #e6f6cf center / cover no-repeat;
   border-radius: 20px;
+  aspect-ratio: 16 / 8;
   padding: 12px 12px 10px 16px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   box-shadow: var(--shadow-sm);
 }
 
@@ -79,6 +79,22 @@
   font-weight: 700;
 }
 
+.secTitle {
+  font-size: 14px;
+  padding: 0 16px 8px;
+}
+
+.secTitle::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--green);
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
 .ways {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -104,6 +120,10 @@
   font-size: 11px;
   color: var(--text-3);
   min-height: 32px;
+}
+
+.way:nth-child(2) {
+  background: #eef6ff;
 }
 
 .go {

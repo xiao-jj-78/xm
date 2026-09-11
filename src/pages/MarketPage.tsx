@@ -40,12 +40,15 @@ export function MarketPage() {
       <div className={styles.prodGrid}>
         {list.map((p) => (
           <article key={p.id} className={styles.prod}>
-            <div className={styles.prodPic} style={{ background: '#eef6dc' }}>
+            <div className={styles.prodPic}>
               <ProductArt kind={p.kind} />
               <span className={styles.prodTag}>{p.tag}</span>
             </div>
             <b>{p.title}</b>
-            <div className={styles.price}>¥{p.price}</div>
+            <div className={styles.price}>
+              <span>¥{p.price}</span>
+              <span className={styles.note}>{p.note}</span>
+            </div>
           </article>
         ))}
       </div>

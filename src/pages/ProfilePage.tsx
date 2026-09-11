@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { SunMascot } from '../components/SunMascot'
 import { useToast } from '../context/ToastContext'
+import { avatar, hero } from '../data/images'
 import styles from './me.module.css'
 
 const ROLES = [
@@ -16,9 +16,7 @@ export function ProfilePage() {
     <div className={styles.page}>
       <header style={{ padding: '2px 18px 4px', fontWeight: 800, fontSize: 18 }}>我的</header>
       <div className={styles.hero}>
-        <div className={styles.avatar}>
-          <SunMascot pose="mini" size={64} />
-        </div>
+        <img className={styles.avatar} src={avatar.student} alt="小阳同学" />
         <div className={styles.who}>
           <b>
             小阳同学 <span className={styles.badge}>学生</span>
@@ -55,7 +53,7 @@ export function ProfilePage() {
       </div>
 
       <Link to="/contact" className={styles.admin}>
-        <SunMascot pose="mega" size={48} />
+        <img className={styles.adminPic} src={hero.contact} alt="" />
         <span className={styles.grow}>
           <b>联系管理员</b>
           <span>有问题？找我们！</span>

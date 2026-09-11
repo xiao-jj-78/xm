@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { IconBack, IconSend } from '../components/Icons'
-import { SunMascot } from '../components/SunMascot'
+import { avatar } from '../data/images'
 import styles from './ChatPage.module.css'
 
 type Msg = { id: number; from: 'ai' | 'me'; text: string; table?: boolean; menu?: boolean }
@@ -10,8 +10,12 @@ const WELCOME: Msg[] = [
   {
     id: 1,
     from: 'ai',
-    text: '你好！我是小海，很高兴认识你！\n我可以帮你查课表、解答问题、提供校园生活与学习建议。陪你度过美好的大学生活～',
+    text: '你好！我是小海，很高兴认识你！\n我可以帮你查课表、解答问题、提供校园生活与学习建议。陪你度过美好的大学生活！',
   },
+  { id: 2, from: 'me', text: '明天有几节课？' },
+  { id: 3, from: 'ai', text: '根据你的课表，明天（周三）有 3 节课：', table: true },
+  { id: 4, from: 'me', text: '食堂今天有什么好吃的？' },
+  { id: 5, from: 'ai', text: '今日食堂推荐：', menu: true },
 ]
 
 export function ChatPage() {
@@ -64,7 +68,7 @@ export function ChatPage() {
         <button className={styles.back} onClick={() => nav(-1)} aria-label="返回">
           <IconBack />
         </button>
-        <SunMascot pose="mini" size={40} />
+        <img className={styles.avatarLg} src={avatar.sun} alt="小海" />
         <div className={styles.who}>
           <b>小海 · 阳光</b>
           <span>你的校园生活助手</span>
@@ -74,49 +78,26 @@ export function ChatPage() {
       <div className={`${styles.list} hide-scroll`}>
         {list.map((m) => (
           <div key={m.id} className={`${styles.row} ${m.from === 'me' ? styles.me : ''}`}>
-            {m.from === 'ai' ? <SunMascot pose="mini" size={32} /> : null}
+            {m.from === 'ai' ? <img className={styles.avatarSm} src={avatar.sun} alt="" /> : null}
             <div className={styles.bubble}>
               {m.text}
               {m.table ? (
-                <table className={styles.table}>
-                  <thead>
-                    <tr>
-                      <th>节次</th>
-                      <th>课程</th>
-                      <th>地点</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1-2</td>
-                      <td>线性代数</td>
-                      <td>教B105</td>
-                    </tr>
-                    <tr>
-                      <td>3-4</td>
-                      <td>大学英语</td>
-                      <td>教C302</td>
-                    </tr>
-                    <tr>
-                      <td>5-6</td>
-                      <td>计算机网络</td>
-                      <td>教A401</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className={styles.lines}>
+                  <span>· 08:00–09:40 数据结构（1–2节）</span>
+                  <span>· 10:20–12:00 大学英语（3–4节）</span>
+                  <span>· 14:00–15:40 计算机网络（5–6节）</span>
+                  <span className={styles.tail}>祝你学习顺利，记得带好课本噢！</span>
+                </div>
               ) : null}
               {m.menu ? (
-                <div style={{ marginTop: 6, fontSize: 12 }}>
-                  · 黄焖鸡米饭 — 经典盖饭
-                  <br />
-                  · 青椒小炒肉 ¥7
-                  <br />
-                  · 轻食沙拉吧 低卡推荐
-                  <br />
-                  祝你学习顺利，记得按时吃饭噢！
+                <div className={styles.lines}>
+                  <span>· 酸汤牛肉面 · 经典盖饭</span>
+                  <span>· 芒果西米露 · 香辣鸡腿饭</span>
+                  <span className={styles.tail}>都很受欢迎哦，快去试试吧～</span>
                 </div>
               ) : null}
             </div>
+            {m.from === 'me' ? <img className={styles.avatarSm} src={avatar.student} alt="" /> : null}
           </div>
         ))}
       </div>

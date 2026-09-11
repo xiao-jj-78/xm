@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { achievements, petItems } from '../data/mock'
 import { PageHeader } from '../components/PageHeader'
-import { SunMascot } from '../components/SunMascot'
 import { useToast } from '../context/ToastContext'
+import { hero } from '../data/images'
 import styles from './me.module.css'
 
 const ACTS = [
@@ -36,8 +36,9 @@ export function PetPage() {
     <div className={styles.page}>
       <PageHeader title="我的阳光" />
       <div className={styles.petHero}>
-        <div className={styles.speech}>和我一起收获阳光吧！</div>
-        <SunMascot pose="wave" size={168} />
+        <div className={styles.petStage} style={{ backgroundImage: `url(${hero.pet})` }}>
+          <div className={styles.speech}>和我一起收获阳光吧！</div>
+        </div>
         <div className={styles.lv}>
           Lv.8
           <span className={styles.xp}>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { messages } from '../data/mock'
-import { SunMascot } from '../components/SunMascot'
 import { Avatar } from '../components/Thumbs'
+import { avatar } from '../data/images'
 import styles from './me.module.css'
 
 export function MessagesPage() {
@@ -13,7 +13,7 @@ export function MessagesPage() {
           const inner = (
             <>
               {m.kind === 'ai' ? (
-                <SunMascot pose="mini" size={44} />
+                <img className={styles.msgAvatar} src={avatar.sun} alt="" />
               ) : (
                 <Avatar name={m.name} hue={m.kind === 'system' ? '#ffe4cc' : '#dcebff'} />
               )}

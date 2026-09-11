@@ -67,12 +67,11 @@
 
 .hero {
   margin: 10px 16px 12px;
-  background: linear-gradient(120deg, #d8f3b4, #eefbd6);
+  background: #e6f6cf center / cover no-repeat;
   border-radius: 22px;
-  min-height: 112px;
+  aspect-ratio: 16 / 7;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 8px 8px 8px 18px;
   box-shadow: var(--shadow-sm);
   overflow: hidden;
@@ -199,6 +198,7 @@
 
 .hotPic {
   height: 78px;
+  background: #eef6dc;
 }
 
 .hot b {
@@ -212,4 +212,66 @@
   padding: 2px 10px 10px;
   font-size: 11px;
   color: var(--text-3);
+}
+
+.latest {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  padding: 4px 12px;
+  margin-bottom: 8px;
+}
+
+.latestRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.latestRow + .latestRow {
+  border-top: 1px solid #f0f5ea;
+}
+
+.latestRow img {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.latestBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.latestBody b {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.latestBody span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.kind {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--green-text);
+  background: var(--green-soft);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+.latestRow em {
+  font-style: normal;
+  color: var(--price);
+  font-weight: 800;
+  font-size: 15px;
 }

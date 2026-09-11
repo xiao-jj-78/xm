@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { courses } from '../data/mock'
 import { PageHeader } from '../components/PageHeader'
-import { SunMascot } from '../components/SunMascot'
 import { useToast } from '../context/ToastContext'
+import { hero } from '../data/images'
 import styles from './SchedulePage.module.css'
 
 const DAYS = ['一', '二', '三', '四', '五', '六', '日']
@@ -16,12 +16,11 @@ export function SchedulePage() {
   return (
     <div className={styles.page}>
       <PageHeader title="课表查询" />
-      <div className={styles.hero}>
+      <div className={styles.hero} style={{ backgroundImage: `url(${hero.schedule})` }}>
         <div>
           <h2>四步轻松查课表</h2>
           <p>快速 · 准确 · 方便</p>
         </div>
-        <SunMascot pose="grad" size={108} />
       </div>
 
       <div className={styles.steps}>
@@ -33,6 +32,7 @@ export function SchedulePage() {
         ))}
       </div>
 
+      <h3 className={styles.secTitle}>查询通道</h3>
       <div className={styles.ways}>
         <article className={styles.way}>
           <b>自动代填</b>

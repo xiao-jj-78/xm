@@ -6,7 +6,17 @@ import { StatusBar } from './StatusBar'
 import { TabBar } from './TabBar'
 import styles from './PhoneShell.module.css'
 
-const TAB_ROUTES = new Set(['/', '/services', '/messages', '/profile'])
+const TAB_ROUTES = new Set([
+  '/',
+  '/services',
+  '/tasks',
+  '/market',
+  '/info',
+  '/food',
+  '/messages',
+  '/profile',
+  '/contact',
+])
 const FILL_ROUTES = new Set(['/chat'])
 
 export function PhoneShell({ children }: { children: ReactNode }) {

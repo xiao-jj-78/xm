@@ -1,3 +1,5 @@
+import type { DishKey, ThumbKey } from './images'
+
 export type ServiceItem = {
   id: string
   title: string
@@ -17,7 +19,7 @@ export type TaskItem = {
   time: string
   user: string
   signups: number
-  hue: string
+  thumb: ThumbKey
 }
 
 export type Product = {
@@ -25,6 +27,7 @@ export type Product = {
   title: string
   price: number
   tag: string
+  note: string
   kind: 'book' | 'ebike' | 'bike' | 'laptop' | 'bag' | 'earphone'
 }
 
@@ -37,7 +40,7 @@ export type Post = {
   time: string
   likes: number
   comments: number
-  thumb?: 'tea' | 'pen' | 'box' | 'badminton'
+  thumb?: ThumbKey
 }
 
 export type Stall = {
@@ -46,7 +49,7 @@ export type Stall = {
   badge: string
   rating: number
   monthly: number
-  dishes: { name: string; price: number; flavor: string }[]
+  dishes: { name: string; price: number; img: DishKey }[]
 }
 
 export type Message = {
@@ -82,10 +85,10 @@ export const campusServices: ServiceItem[] = [
   { id: '10', title: '快捷代取', desc: '快递代取更省心', icon: 'flash', tint: '#ffe4cc', to: '/tasks' },
 ]
 
-export const hotServices = [
-  { title: '代取快递', sub: '北门驿站随时可取', tint: '#d9f0c4', kind: 'box' as const, to: '/tasks' },
-  { title: '二手交易', sub: '教材数码低价转', tint: '#ffe6c9', kind: 'goods' as const, to: '/market' },
-  { title: '校园食堂', sub: '档口热销盖饭', tint: '#ffe0b8', kind: 'meal' as const, to: '/food' },
+export const hotServices: { title: string; sub: string; kind: ThumbKey; to: string }[] = [
+  { title: '代取快递', sub: '北门驿站随时可取', kind: 'box', to: '/tasks' },
+  { title: '二手交易', sub: '教材数码低价转', kind: 'goods', to: '/market' },
+  { title: '校园食堂', sub: '档口热销盖饭', kind: 'meal', to: '/food' },
 ]
 
 export const tasks: TaskItem[] = [
@@ -99,7 +102,7 @@ export const tasks: TaskItem[] = [
     time: '今天 18:00',
     user: '小白同学',
     signups: 3,
-    hue: '#67c23a',
+    thumb: 'box',
   },
   {
     id: 't2',
@@ -111,7 +114,7 @@ export const tasks: TaskItem[] = [
     time: '今天 12:00',
     user: '小明同学',
     signups: 1,
-    hue: '#ff9a3c',
+    thumb: 'canteen',
   },
   {
     id: 't3',
@@ -123,7 +126,7 @@ export const tasks: TaskItem[] = [
     time: '今天 16:00',
     user: '小绿',
     signups: 2,
-    hue: '#67c23a',
+    thumb: 'printer',
   },
   {
     id: 't4',
@@ -135,17 +138,22 @@ export const tasks: TaskItem[] = [
     time: '周六 09:00',
     user: '山风',
     signups: 2,
-    hue: '#ff9a3c',
+    thumb: 'mountain',
   },
 ]
 
+export const latestFeed: { kind: '求助' | '二手'; title: string; sub: string; price: number; thumb: ThumbKey; to: string }[] = [
+  { kind: '求助', title: '帮忙取快递', sub: '北门驿站 · 今天 18:00', price: 8, thumb: 'box', to: '/tasks' },
+  { kind: '二手', title: '9成新无线耳机', sub: '数码 · 可议价', price: 99, thumb: 'earphone', to: '/market' },
+]
+
 export const products: Product[] = [
-  { id: 'p1', title: '高等数学教材', price: 15, tag: '教材', kind: 'book' },
-  { id: 'p2', title: '九成新电车', price: 2800, tag: '电车', kind: 'ebike' },
-  { id: 'p3', title: '双肩背包', price: 45, tag: '生活', kind: 'bag' },
-  { id: 'p4', title: '山地自行车', price: 350, tag: '自行车', kind: 'bike' },
-  { id: 'p5', title: '无线耳机', price: 99, tag: '数码', kind: 'earphone' },
-  { id: 'p6', title: '九成新笔记本', price: 1200, tag: '数码', kind: 'laptop' },
+  { id: 'p1', title: '高数教材 9成新', price: 20, tag: '教材', note: '包邮', kind: 'book' },
+  { id: 'p2', title: '九成新电动车', price: 680, tag: '电车', note: '可议价', kind: 'ebike' },
+  { id: 'p4', title: '山地自行车 9成新', price: 350, tag: '自行车', note: '可自提', kind: 'bike' },
+  { id: 'p6', title: '笔记本电脑 轻薄本', price: 1200, tag: '数码', note: '可议价', kind: 'laptop' },
+  { id: 'p3', title: '双肩背包', price: 45, tag: '生活', note: '包邮', kind: 'bag' },
+  { id: 'p5', title: '无线耳机', price: 99, tag: '数码', note: '可议价', kind: 'earphone' },
 ]
 
 export const posts: Post[] = [
@@ -203,10 +211,10 @@ export const stalls: Stall[] = [
     rating: 4.9,
     monthly: 1280,
     dishes: [
-      { name: '黄焖鸡米饭', price: 12, flavor: '#f6c56a' },
-      { name: '经典盖饭', price: 10, flavor: '#e89b5c' },
-      { name: '芒果西米露', price: 6, flavor: '#ffe08a' },
-      { name: '香辣鸡腿饭', price: 13, flavor: '#d96a45' },
+      { name: '黄焖鸡米饭', price: 12, img: 'chicken' },
+      { name: '经典盖饭', price: 10, img: 'rice' },
+      { name: '芒果西米露', price: 6, img: 'mango' },
+      { name: '香辣鸡腿饭', price: 13, img: 'chicken' },
     ],
   },
   {
@@ -216,9 +224,9 @@ export const stalls: Stall[] = [
     rating: 4.7,
     monthly: 860,
     dishes: [
-      { name: '青椒小炒肉', price: 7, flavor: '#8ecf6b' },
-      { name: '番茄炒蛋', price: 6, flavor: '#f0a05a' },
-      { name: '米饭', price: 1, flavor: '#f5e6c8' },
+      { name: '青椒小炒肉', price: 7, img: 'pepperPork' },
+      { name: '番茄炒蛋', price: 6, img: 'tomatoEgg' },
+      { name: '招牌盖饭', price: 9, img: 'rice' },
     ],
   },
   {
@@ -228,9 +236,9 @@ export const stalls: Stall[] = [
     rating: 4.8,
     monthly: 540,
     dishes: [
-      { name: '鸡胸沙拉', price: 15, flavor: '#b7e38a' },
-      { name: '牛肉沙拉', price: 18, flavor: '#d4e27a' },
-      { name: '酸奶杯', price: 8, flavor: '#ffe9a8' },
+      { name: '鸡胸沙拉', price: 15, img: 'salad' },
+      { name: '酸奶杯', price: 8, img: 'yogurt' },
+      { name: '芒果西米露', price: 6, img: 'mango' },
     ],
   },
 ]

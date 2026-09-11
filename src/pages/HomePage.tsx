@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { homeServices, hotServices } from '../data/mock'
+import { homeServices, hotServices, latestFeed } from '../data/mock'
 import { IconPin, IconSearch, IconSpeaker, serviceIconMap } from '../components/Icons'
-import { SunMascot } from '../components/SunMascot'
 import { ProductArt } from '../components/Thumbs'
+import { hero, thumbImg } from '../data/images'
 import styles from './HomePage.module.css'
 
 export function HomePage() {
@@ -29,7 +29,7 @@ export function HomePage() {
         ))}
       </div>
 
-      <div className={styles.hero}>
+      <div className={styles.hero} style={{ backgroundImage: `url(${hero.home})` }}>
         <div>
           <h2>
             让校园生活
@@ -38,7 +38,6 @@ export function HomePage() {
           </h2>
           <p>互助 · 分享 · 便利 · 成长</p>
         </div>
-        <SunMascot pose="hero" size={124} />
       </div>
 
       <div className={styles.grid}>
@@ -70,11 +69,35 @@ export function HomePage() {
         <div className={`${styles.hots} hide-scroll`}>
           {hotServices.map((h) => (
             <Link key={h.title} to={h.to} className={styles.hot}>
-              <div className={styles.hotPic} style={{ background: h.tint }}>
+              <div className={styles.hotPic}>
                 <ProductArt kind={h.kind} />
               </div>
               <b>{h.title}</b>
               <span>{h.sub}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.block}>
+        <div className={styles.blockHead}>
+          <h3>任务&二手最新</h3>
+          <Link to="/tasks" className={styles.more}>
+            更多
+          </Link>
+        </div>
+        <div className={styles.latest}>
+          {latestFeed.map((f) => (
+            <Link key={f.title} to={f.to} className={styles.latestRow}>
+              <img src={thumbImg[f.thumb]} alt="" loading="lazy" />
+              <div className={styles.latestBody}>
+                <b>
+                  <span className={styles.kind}>{f.kind}</span>
+                  {f.title}
+                </b>
+                <span>{f.sub}</span>
+              </div>
+              <em>¥{f.price}</em>
             </Link>
           ))}
         </div>

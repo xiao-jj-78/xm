@@ -44,3 +44,7 @@ The center **+** opens a publish sheet (任务 / 闲置 / 信息 / 求助).
 ## Stack
 
 Vite · React 19 · TypeScript · React Router · CSS Modules. No UI kit — components are hand-styled to match the mockups.
+
+## Artwork
+
+All illustrations under `src/assets/img/` (sun mascot banners, avatars, product photos, dish thumbnails) were AI-generated for this prototype in the mockup's green/yellow palette and downscaled to JPEG. The original design mockups live in `design-refs/`.

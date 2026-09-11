@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { stalls } from '../data/mock'
 import { PageHeader } from '../components/PageHeader'
-import { SunMascot } from '../components/SunMascot'
 import { useToast } from '../context/ToastContext'
+import { dishImg, hero } from '../data/images'
 import styles from './campus.module.css'
 
 export function FoodPage() {
@@ -22,15 +22,14 @@ export function FoodPage() {
   return (
     <div className={styles.page}>
       <PageHeader title="校园订餐" />
-      <div className={styles.banner}>
+      <div className={styles.banner} style={{ backgroundImage: `url(${hero.food})` }}>
         <div>
           <h2>逛档口</h2>
-          <p style={{ fontSize: 12, color: '#6aa24a', marginTop: 4 }}>热辣盖饭 · 轻食沙拉都在这</p>
+          <p style={{ fontSize: 12, color: '#6aa24a', marginTop: 4 }}>多样美食 · 新鲜健康</p>
+          <button className={styles.spin} onClick={spin}>
+            {spinning ? '转转中…' : '吃啥转盘 ›'}
+          </button>
         </div>
-        <SunMascot pose="wave" size={96} />
-        <button className={styles.spin} onClick={spin}>
-          {spinning ? '转转…' : '吃啥\n转盘'}
-        </button>
       </div>
       <div className={styles.stallHead}>
         <b>营业中档口</b>
@@ -42,14 +41,15 @@ export function FoodPage() {
             <div>
               <b>{s.name}</b>
               <div style={{ fontSize: 12, color: '#97a697', marginTop: 4 }}>
-                ★ {s.rating} · 月售 {s.monthly} · {s.badge}
+                <span style={{ color: '#ffb400' }}>★</span> {s.rating} · 月售 {s.monthly} · {s.badge}
               </div>
             </div>
+            <span className={styles.open}>营业中</span>
           </div>
           <div className={`${styles.dishes} hide-scroll`}>
             {s.dishes.map((d) => (
               <div key={d.name} className={styles.dish}>
-                <div className={styles.dishPic} style={{ background: d.flavor }} />
+                <img className={styles.dishPic} src={dishImg[d.img]} alt={d.name} loading="lazy" />
                 <span>
                   {d.name}
                   <br />

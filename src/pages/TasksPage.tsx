@@ -3,6 +3,7 @@ import { tasks } from '../data/mock'
 import { PageHeader } from '../components/PageHeader'
 import { Avatar } from '../components/Thumbs'
 import { IconClock, IconPin } from '../components/Icons'
+import { thumbImg } from '../data/images'
 import styles from './campus.module.css'
 
 const TABS = ['任务大厅', '我的收藏', '我的发布'] as const
@@ -40,15 +41,20 @@ export function TasksPage() {
               {t.status}
             </span>
           </div>
-          <div className={styles.taskTitle}>{t.title}</div>
-          <div className={styles.price}>¥{t.price}</div>
-          <div className={styles.meta}>
-            <span>
-              <IconPin size={12} /> {t.place}
-            </span>
-            <span>
-              <IconClock size={12} /> {t.time}
-            </span>
+          <div className={styles.taskBody}>
+            <div>
+              <div className={styles.taskTitle}>{t.title}</div>
+              <div className={styles.price}>¥{t.price}</div>
+              <div className={styles.meta}>
+                <span>
+                  <IconPin size={12} /> {t.place}
+                </span>
+                <span>
+                  <IconClock size={12} /> {t.time}
+                </span>
+              </div>
+            </div>
+            <img className={styles.taskThumb} src={thumbImg[t.thumb]} alt="" loading="lazy" />
           </div>
           <div className={styles.foot}>
             <span className={styles.user}>

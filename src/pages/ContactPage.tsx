@@ -1,7 +1,7 @@
 import { PageHeader } from '../components/PageHeader'
-import { SunMascot } from '../components/SunMascot'
 import { IconCopy, IconPhone, IconWechat } from '../components/Icons'
 import { useToast } from '../context/ToastContext'
+import { hero } from '../data/images'
 import styles from './me.module.css'
 
 export function ContactPage() {
@@ -9,7 +9,7 @@ export function ContactPage() {
   return (
     <div className={styles.page}>
       <PageHeader title="联系管理员" />
-      <div className={styles.contactHero}>
+      <div className={styles.contactHero} style={{ backgroundImage: `url(${hero.contact})` }}>
         <div>
           <h2>
             有问题？
@@ -18,7 +18,6 @@ export function ContactPage() {
           </h2>
           <p>我们会尽快为你解答</p>
         </div>
-        <SunMascot pose="mega" size={120} />
       </div>
 
       <div className={styles.row}>
@@ -83,7 +82,7 @@ export function ContactPage() {
         </div>
       </div>
 
-      <p className={styles.tip}>♥ 如需帮助请优先在此联系</p>
+      <div className={styles.tipBtn}>♥ 如需帮助请优先在此联系</div>
     </div>
   )
 }
